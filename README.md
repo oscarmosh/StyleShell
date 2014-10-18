@@ -1,4 +1,5 @@
 # StyleShell
+[![Build Status](https://travis-ci.org/HosseinKarami/fastshell.png?branch=master)](https://travis-ci.org/HosseinKarami/fastshell)
 
 inspired by [FireShell](http://getfireshell.com) and [FastShell](http://hosseinkarami.github.io/fastshell/)
 front-end boilerplate and workflows, not operable by Cats.
