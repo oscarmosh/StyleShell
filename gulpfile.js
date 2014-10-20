@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 		rupture = require('rupture'),
 		browserSync = require('browser-sync'),
 		autoprefixer = require('gulp-autoprefixer'),
+		concat = require('gulp-concat'),
 		uglify = require('gulp-uglify'),
 		jshint = require('gulp-jshint'),
 		header  = require('gulp-header'),
@@ -13,6 +14,12 @@ var gulp = require('gulp'),
 		minifyCSS = require('gulp-minify-css'),
 		package = require('./package.json');
 
+
+var paths = {
+	styles: ['src/style/normalize.styl',
+			'src/style/style.styl'],
+	scripts: 'src/js/scripts.js'
+}
 
 var banner = [
 	'/*!\n' +
@@ -27,12 +34,11 @@ var banner = [
 ].join('');
 
 gulp.task('css', function () {
-		return gulp.src('src/stylus/style.styl')
+		return gulp.src(paths.styles)
 		.pipe(stylus({
         use:[nib(), jeet(), rupture()],
       	}))
-		.pipe(autoprefixer('last 4 version'))
-		.pipe(gulp.dest('app/assets/css'))
+		.pipe(concat('all.css'))
 		.pipe(minifyCSS())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(header(banner, { package : package }))
@@ -41,24 +47,32 @@ gulp.task('css', function () {
 });
 
 gulp.task('js',function(){
-	gulp.src('src/js/scripts.js')
-		.pipe(jshint.reporter('default'))
-		.pipe(header(banner, { package : package }))
-		.pipe(gulp.dest('app/assets/js'))
+	gulp.src(paths.scripts)
+		.pipe(concat('all.js'))
 		.pipe(uglify())
-		.pipe(header(banner, { package : package }))
 		.pipe(rename({ suffix: '.min' }))
+		.pipe(header(banner, { package : package }))
 		.pipe(gulp.dest('app/assets/js'))
 		.pipe(browserSync.reload({stream:true, once: true}));
 });
 
+// Set your local server here
 gulp.task('browser-sync', function() {
-		browserSync.init(null, {
-				server: {
-						baseDir: "app"
-				}
-		});
+    browserSync({
+        proxy: "http://local.jeet.dev"
+    });
 });
+
+
+// You also can use a Static Server (swicht to this task)
+// gulp.task('browser-sync', function() {
+// 		browserSync.init(null, {
+// 				server: {
+// 						baseDir: "app"
+// 				}
+// 		});
+// });
+
 
 gulp.task('bs-reload', function () {
 		browserSync.reload();
@@ -66,7 +80,7 @@ gulp.task('bs-reload', function () {
 
 
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {
-		gulp.watch("src/scss/*/*.scss", ['css']);
+		gulp.watch("src/style/*.styl", ['css']);
 		gulp.watch("src/js/*.js", ['js']);
 		gulp.watch("app/*.html", ['bs-reload']);
 });
