@@ -6,3 +6,4 @@
  * @version 0.0.1
  * Copyright 2014. MIT licensed.
  */
+aside{float:left;width:column-width(0.333333333333333);margin-left:column-gutter(0.333333333333333)}

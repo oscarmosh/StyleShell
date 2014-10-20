@@ -29,11 +29,8 @@ var banner = [
 gulp.task('css', function () {
 		return gulp.src('src/stylus/style.styl')
 		.pipe(stylus({
-	      use: nib(),
-	      use: jeet(),
-	      use: rupture(),
-	      compress: true
-	    }))
+        use:[nib(), jeet(), rupture()],
+      	}))
 		.pipe(autoprefixer('last 4 version'))
 		.pipe(gulp.dest('app/assets/css'))
 		.pipe(minifyCSS())
@@ -45,8 +42,7 @@ gulp.task('css', function () {
 
 gulp.task('js',function(){
 	gulp.src('src/js/scripts.js')
-		// .pipe(jshint('.jshintrc'))
-		// .pipe(jshint.reporter('default'))
+		.pipe(jshint.reporter('default'))
 		.pipe(header(banner, { package : package }))
 		.pipe(gulp.dest('app/assets/js'))
 		.pipe(uglify())
