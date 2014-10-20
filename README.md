@@ -6,10 +6,8 @@ front-end boilerplate and workflows, not operable by Cats.
 
 This is my first framework, it's focused on expand capabilities to design and speed the workflow. Could be used by teams or individuals, encouraging a better workflow. JavaScript task running, build processes, autominification and file concatenation, wrapped with an enhanced HTML5 boilerplated framework.
 
-* Source: [github.com/HosseinKarami/fastshell](https://github.com/oscarmosh/StyleShell)
+* Source: [https://github.com/oscarmosh/StyleShell](https://github.com/oscarmosh/StyleShell)
 * Documentation: [Docs.md](https://github.com/oscarmosh/StyleShell/blob/master/docs/DOCS.md)
-* HomePage: [Fastshell](https://HosseinKarami.github.io/fastshell)
-
 
 ## License
 
