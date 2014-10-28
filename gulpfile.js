@@ -19,7 +19,7 @@ var paths = {
 	styles: ['src/style/normalize.styl',
 			'src/style/style.styl'],
 	scripts: 'src/js/scripts.js'
-}
+};
 
 var banner = [
 	'/*!\n' +
@@ -32,6 +32,8 @@ var banner = [
 	' */',
 	'\n'
 ].join('');
+
+
 
 gulp.task('css', function () {
 		return gulp.src(paths.styles)

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>StyleShell by @oscarmosh</title>
+    <title>MoshShell by @oscarmosh</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -28,7 +28,7 @@
 			<div><img src="http://placekitten.com/g/300/300" alt=""></div>
 			<div><img src="http://placekitten.com/g/320/320" alt=""></div>
 			<div><img src="http://placekitten.com/g/329/329" alt=""></div>
-			<div><img src="http://placekitten.com/g/280/280" alt=""></div>
+            <div><img src="http://placekitten.com/g/280/280" alt=""></div>
 		</article>
 
 		<article id="dos">
